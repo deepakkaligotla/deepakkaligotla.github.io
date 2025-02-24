@@ -1,0 +1,90 @@
+# Flutter build and generated files
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+.idea/
+.vscode/
+.melos/
+generated_plugin_registrant.dart
+
+# iOS and macOS
+ios/Flutter/Flutter.podspec
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+macos/Flutter/Flutter.podspec
+macos/Pods/
+macos/.symlinks/
+macos/Flutter/Generated.xcconfig
+macos/Flutter/App.framework
+macos/Flutter/Flutter.framework
+
+# Android
+android/.gradle/
+android/app/google-services.json
+android/key.properties
+android/app/app.keystore
+android/app/debug
+android/app/profile
+android/app/release
+
+# Windows
+windows/flutter/ephemeral/
+windows/CMakeLists.txt
+
+# Web
+web/.dart_tool/
+web/.firebase/
+
+# Firebase and secrets
+firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+*.env
+*.secret
+*.key
+*.pem
+*.p12
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code (commented out by default, uncomment if necessary)
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
