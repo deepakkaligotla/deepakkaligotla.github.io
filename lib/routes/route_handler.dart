@@ -36,6 +36,7 @@ class PublicRouteData {
   static RouteInfo experience = RouteInfo(path: 'public/experience', widget: const ExperienceScreen(), isPrivate: false);
   static RouteInfo profileSettings = RouteInfo(path: 'profile/settings', widget: const ProfileSettings(), isPrivate: false);
   static RouteInfo services = RouteInfo(path: 'public/services', widget: const PublicHome(), isPrivate: false);
+  static RouteInfo certificates = RouteInfo(path: 'public/services', widget: const PublicHome(), isPrivate: false);
   static RouteInfo authLogin = RouteInfo(path: 'auth/login', widget: const AuthScreen(), isPrivate: false);
   static RouteInfo deviceInfo = RouteInfo(path: 'device/info', widget: const DeviceInfoScreen(), isPrivate: false);
   static RouteInfo notFound = RouteInfo(path: 'error', widget: const ScreenNotFound(), isPrivate: false);

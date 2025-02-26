@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:deepakkaligotla/providers/flutter_secure_storage.dart';
-import '../../../models/device_info.dart';
 
 class DeviceInfoScreen extends StatefulWidget {
   const DeviceInfoScreen({super.key});
@@ -31,14 +30,16 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
-
-              /// General Device Info
-              _buildInfoSection("General Info", DeviceInfo.toMap(finalData.deviceInfo)),
-
-              /// Device Data
+              _buildInfoSection("General Info", {
+                'isLoggedIn': finalData.deviceInfo.isLoggedIn,
+                'deviceChannel': finalData.deviceInfo.deviceChannel,
+                'devicePlatform': finalData.deviceInfo.devicePlatform,
+                'lastSignInTime': finalData.deviceInfo.lastSignInTime?.toIso8601String(),
+                'deviceHeight': finalData.deviceInfo.deviceHeight,
+                'deviceWidth': finalData.deviceInfo.deviceWidth,
+                'deviceCategory': finalData.deviceInfo.deviceCategory,
+              }),
               _buildInfoSection("Device Data", finalData.deviceInfo.deviceData ?? {}),
-
-              /// Network Info
               _buildInfoSection("Network Info", finalData.deviceInfo.deviceNetwork ?? {}),
             ],
           ),
@@ -47,9 +48,8 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
     );
   }
 
-  /// Helper function to create a section for device info
   Widget _buildInfoSection(String title, Map<String, dynamic> data) {
-    if (data.isEmpty) return const SizedBox(); // Hide section if no data
+    if (data.isEmpty) return const SizedBox();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

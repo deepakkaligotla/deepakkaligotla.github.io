@@ -133,13 +133,30 @@ DeviceInfo({
     final ipv4 = jsonDecode(ipv4Response.body)['ip'];
     final ipv6 = jsonDecode(ipv6Response.body)['ip'];
     final geoData = jsonDecode(geoResponse.body);
-    // final connectionType = html.window.navigator.connection?.type ?? 'Unknown';
 
     return {
       'publicIPv4': ipv4,
       'publicIPv6': ipv6,
-      // 'connectionType': connectionType,
-      'geolocation': geoData
+      'ip': geoData['ip'],
+      'city': geoData['city'],
+      'region': geoData['region'],
+      'region_code': geoData['region_code'],
+      'country': geoData['country_name'],
+      'country_code': geoData['country_code'],
+      'country_code_iso3': geoData['country_code_iso3'],
+      'country_capital': geoData['country_capital'],
+      'country_tld': geoData['country_tld'],
+      'continent_code': geoData['continent_code'],
+      'latitude': geoData['latitude'],
+      'longitude': geoData['longitude'],
+      'timezone': geoData['timezone'],
+      'utc_offset': geoData['utc_offset'],
+      'country_calling_code': geoData['country_calling_code'],
+      'currency': geoData['currency'],
+      'currency_name': geoData['currency_name'],
+      'languages': geoData['languages'],
+      'asn': geoData['asn'],
+      'org': geoData['org'],
     };
   }
 

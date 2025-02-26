@@ -3,6 +3,8 @@ import 'package:deepakkaligotla/providers/flutter_secure_storage.dart';
 import 'package:deepakkaligotla/routes/route_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../models/device_info.dart';
 import 'components/about.dart';
 import 'components/contact_icons.dart';
 import 'components/knowledge.dart';
@@ -19,7 +21,7 @@ class DeepakDrawer extends StatefulWidget {
 
 class _DeepakDrawerState extends State<DeepakDrawer> {
   int _selectedIndex = 0;
-  double groupAlignment = -1.0;
+  NavigationRailLabelType labelType = NavigationRailLabelType.all;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,9 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               PublicRouteData.publicHome.path,
               PublicRouteData.education.path,
               PublicRouteData.experience.path,
+              PublicRouteData.services.path,
+              PublicRouteData.certificates.path,
+              PublicRouteData.about.path,
             ];
 
     List<NavigationRailDestination> navRailDest =
@@ -104,10 +109,37 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
                 label: Text('Experience'),
                 selectedIcon: Icon(Icons.work_history),
               ),
+              NavigationRailDestination(
+                icon: Icon(Icons.design_services_outlined),
+                label: Text('Services'),
+                selectedIcon: Icon(Icons.design_services),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.verified_user_outlined),
+                label: Text('Experience'),
+                selectedIcon: Icon(Icons.verified_user),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.info_outline),
+                label: Text('Contact Me'),
+                selectedIcon: Icon(Icons.info),
+              ),
             ];
 
+    double _getDrawerWidth(DeviceInfo deviceInfo) {
+      switch (deviceInfo.deviceCategory) {
+        case 'xsm': return deviceInfo.deviceWidth! * 0.5; // Extra Small Screens (Phones)
+        case 'sm': return deviceInfo.deviceWidth! * 0.5;  // Small Screens (Folded Phones)
+        case 'md': return deviceInfo.deviceWidth! * 0.4;  // Medium Screens (Tablets)
+        case 'lg': return deviceInfo.deviceWidth! * 0.3;  // Large Screens (Laptops)
+        case 'xl': return deviceInfo.deviceWidth! * 0.3;  // Extra Large Screens
+        case 'xxl': return deviceInfo.deviceWidth! * 0.3; // Huge Screens
+        default: return deviceInfo.deviceWidth! * 0.5;    // Default to 50%
+      }
+    }
+
     return Drawer(
-      width: finalData.deviceInfo.deviceWidth! / 2,
+      width: _getDrawerWidth(finalData.deviceInfo),
       child: Column(
         children: [
           SizedBox(
@@ -116,8 +148,13 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               decoration: BoxDecoration(
                 color: finalData.userDetails.userColorScheme?.background,
               ),
-              currentAccountPicture: Image.network(
-                'https://raw.githubusercontent.com/deepakkaligotla/deepakkaligotla.github.io/refs/heads/main/assets/images/logo.png',
+              currentAccountPicture: SizedBox(
+                width: double.infinity,
+                height: double.infinity,
+                child: Image.network(
+                  'https://raw.githubusercontent.com/deepakkaligotla/deepakkaligotla.github.io/refs/heads/main/assets/images/logo.png',
+                  fit: BoxFit.cover,
+                ),
               ),
               otherAccountsPictures: [
                 Container(
@@ -133,7 +170,10 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
                     ],
                   ),
                   child: ClipOval(
-                    child: Image.network('${finalData.userDetails.photoURL}', fit: BoxFit.cover),
+                    child: Image.network(
+                      '${finalData.userDetails.photoURL}',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ],
@@ -147,13 +187,12 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               ),
             ),
           ),
-          const About(),
           Expanded(
             child: NavigationRail(
               useIndicator: true,
-              groupAlignment: groupAlignment,
-              extended: finalData.deviceInfo.deviceWidth! > 455,
+              groupAlignment: -1.0,
               selectedIndex: _selectedIndex,
+              labelType: labelType,
               onDestinationSelected: (value) {
                 setState(() {
                   widget.onDrawerItemTap(pages[value]);
@@ -166,27 +205,24 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               trailing: ContactIcon(),
             ),
           ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    color: bgColor,
-                    child: const Padding(
-                      padding: EdgeInsets.all(defaultPadding / 2),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          MySKills(),
-                          Knowledge(),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Expanded(
+          //   child: SingleChildScrollView(
+          //     child: Column(
+          //       children: [
+          //         Container(
+          //           color: bgColor,
+          //           child: const Padding(
+          //             padding: EdgeInsets.all(defaultPadding / 2),
+          //             child: Column(
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [MySKills(), Knowledge()],
+          //             ),
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
