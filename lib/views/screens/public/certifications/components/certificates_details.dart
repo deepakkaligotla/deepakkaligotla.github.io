@@ -3,6 +3,7 @@ import 'package:deepakkaligotla/core/utils/format_date.dart';
 import 'package:deepakkaligotla/view_models/getx_controllers/certification_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -35,24 +36,38 @@ class CertificateStack extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                certificate.certificateName,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(color: Colors.white, fontSize: 16),
-              ),
-              const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    certificate.issuingOrganization,
-                    style: const TextStyle(color: Colors.amber),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        certificate.certificateName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                      Text(
+                        certificate.issuingOrganization,
+                        style: const TextStyle(color: Colors.amber),
+                      ),
+                    ],
                   ),
-                  Text(
-                    formatDate(certificate.issueDate),
-                    style: const TextStyle(color: Colors.grey, fontSize: 12),
-                  ),
+                  if (certificate.issuingOrgUrl.isNotEmpty)
+                    Center(
+                      child: SvgPicture.network(
+                        certificate.issuingOrgUrl,
+                        height: 50,
+                        width: 50,
+                        fit: BoxFit.contain,
+                        errorBuilder: (context, error, stackTrace) => const Icon(
+                          Icons.broken_image,
+                          color: Colors.red,
+                          size: 50,
+                        ),
+                      ),
+                    ),
                 ],
               ),
               const SizedBox(height: 5 / 2),
