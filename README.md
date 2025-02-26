@@ -35,29 +35,29 @@ Here are some of the projects I’ve worked on:
 - **Description**: A weather application that pulls real-time weather data from an API.
 - **Technologies Used**: Kotlin, Retrofit, JSON parsing, Material Design
 - **Features**:
-  - Displays current weather conditions.
-  - Shows a 5-day weather forecast.
-  - Integration with OpenWeatherMap API.
+    - Displays current weather conditions.
+    - Shows a 5-day weather forecast.
+    - Integration with OpenWeatherMap API.
 
 ### 2. **Task Manager (iOS - SwiftUI)**
 
 - **Description**: A task management app to create and track tasks.
 - **Technologies Used**: SwiftUI, Core Data, CloudKit
 - **Features**:
-  - Add, edit, and delete tasks.
-  - Sync tasks across devices using iCloud.
+    - Add, edit, and delete tasks.
+    - Sync tasks across devices using iCloud.
 
 ## Key Skills
 
 - **Mobile Development**:
-  - Android (Kotlin, Java, XML)
-  - iOS (Swift, Objective-C, SwiftUI, Storyboard)
-  - Cross-Platform Development (Flutter, React Native) basics
+    - Android (Kotlin, Java, XML)
+    - iOS (Swift, Objective-C, SwiftUI, Storyboard)
+    - Cross-Platform Development (Flutter, React Native) basics
 
 - **Cloud Technologies**:
-  - Firebase (Authentication, Firestore, Cloud Functions)
-  - Azure (AZ-900, AZ-204)
-  - Google Cloud (Associate Cloud Engineer, Professional Cloud Developer)
+    - Firebase (Authentication, Firestore, Cloud Functions)
+    - Azure (AZ-900, AZ-204)
+    - Google Cloud (Associate Cloud Engineer, Professional Cloud Developer)
 
 - **Version Control**: Git, GitHub, GitLab
 

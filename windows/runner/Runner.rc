@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "in.kaligotla" "\0"
-            VALUE "FileDescription", "deepak" "\0"
+            VALUE "FileDescription", "deepakkaligotla" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "deepak" "\0"
+            VALUE "InternalName", "deepakkaligotla" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 in.kaligotla. All rights reserved." "\0"
-            VALUE "OriginalFilename", "deepak.exe" "\0"
-            VALUE "ProductName", "deepak" "\0"
+            VALUE "OriginalFilename", "deepakkaligotla.exe" "\0"
+            VALUE "ProductName", "deepakkaligotla" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

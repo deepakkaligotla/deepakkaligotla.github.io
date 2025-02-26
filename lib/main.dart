@@ -1,20 +1,19 @@
 library;
 import 'dart:async';
 import 'dart:developer' as developer;
-import 'package:deepakkaligotla/view/splash/splash_view.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
-import 'package:deepakkaligotla/res/features/general/location_permission.dart';
-import 'package:deepakkaligotla/res/common/providers/model_provider.dart';
-import 'package:deepakkaligotla/res/features/general/providers/storage_providers_setup.dart';
-import 'package:deepakkaligotla/res/features/general/account_linker.dart';
-import 'package:deepakkaligotla/res/features/firebase/firestore_provider.dart';
-import 'package:deepakkaligotla/res/features/general/providers/flutter_secure_storage.dart';
-import 'package:deepakkaligotla/res/features/firebase/firebase_initializer.dart';
-import 'package:deepakkaligotla/viewModel/experienceViewModel.dart';
-import 'package:deepakkaligotla/viewModel/educationViewModel.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:deepakkaligotla/app.dart';
+import 'package:deepakkaligotla/providers/model_provider.dart';
+import 'package:deepakkaligotla/providers/storage_providers_setup.dart';
+import 'package:deepakkaligotla/core/utils/account_linker.dart';
+import 'package:deepakkaligotla/providers/firestore_provider.dart';
+import 'package:deepakkaligotla/providers/flutter_secure_storage.dart';
+import 'package:deepakkaligotla/core/services/firebase_initializer.dart';
+import 'package:deepakkaligotla/view_models/experienceViewModel.dart';
+import 'package:deepakkaligotla/view_models/educationViewModel.dart';
 
 const clientId = '364889823069-hj3143d5lfne6qkcroi69gpvlevmu726.apps.googleusercontent.com';
 
@@ -53,10 +52,10 @@ void main() async {
             },
           ),
         ],
-        child: const SafeArea(child: LocationPermission()),
+        child: const SafeArea(child: MyApp()),
       ),
     );
   }, (dynamic error, dynamic stack) {
     developer.log("Something went wrong!", error: error, stackTrace: stack);
-    });
+  });
 }
