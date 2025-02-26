@@ -6,7 +6,7 @@ class CertificationViewModel {
 
   // Method to fetch all certifications
   Future<List<Certification>> fetchCertifications() async {
-    QuerySnapshot snapshot = await _firestore.collection('certifications').get();
+    QuerySnapshot snapshot = await _firestore.collection('certificates').get();
     return snapshot.docs
         .map((doc) => Certification.fromFirestore(doc))
         .toList();
@@ -14,7 +14,7 @@ class CertificationViewModel {
 
   // Method to add a new certification
   Future<void> addCertification(Certification certification) async {
-    await _firestore.collection('certifications').add({
+    await _firestore.collection('certificates').add({
       'certificateName': certification.certificateName,
       'credentialId': certification.credentialId,
       'credentialUrl': certification.credentialUrl,

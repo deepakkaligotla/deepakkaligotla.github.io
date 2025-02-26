@@ -118,7 +118,7 @@ DeviceInfo({
         if (permission.isGranted) {
           deviceNetwork = await _readNetworkInfo(networkInfo);
         } else if(permission.isDenied || permission.isPermanentlyDenied) {
-          deviceNetwork = {'Permission':'Not granted'};
+          deviceNetwork = {'Location Permission':'Not granted'};
         }
       }
     } on PlatformException {
@@ -127,37 +127,17 @@ DeviceInfo({
   }
 
   Future<Map<String, dynamic>> _getWebNetworkDetails() async {
-    final ipv4Response = await http.get(Uri.parse('https://api.ipify.org?format=json'));
-    final ipv6Response = await http.get(Uri.parse('https://api64.ipify.org?format=json'));
-    final geoResponse = await http.get(Uri.parse('https://ipapi.co/json/'));
-    final ipv4 = jsonDecode(ipv4Response.body)['ip'];
-    final ipv6 = jsonDecode(ipv6Response.body)['ip'];
-    final geoData = jsonDecode(geoResponse.body);
-
-    return {
-      'publicIPv4': ipv4,
-      'publicIPv6': ipv6,
-      'ip': geoData['ip'],
-      'city': geoData['city'],
-      'region': geoData['region'],
-      'region_code': geoData['region_code'],
-      'country': geoData['country_name'],
-      'country_code': geoData['country_code'],
-      'country_code_iso3': geoData['country_code_iso3'],
-      'country_capital': geoData['country_capital'],
-      'country_tld': geoData['country_tld'],
-      'continent_code': geoData['continent_code'],
-      'latitude': geoData['latitude'],
-      'longitude': geoData['longitude'],
-      'timezone': geoData['timezone'],
-      'utc_offset': geoData['utc_offset'],
-      'country_calling_code': geoData['country_calling_code'],
-      'currency': geoData['currency'],
-      'currency_name': geoData['currency_name'],
-      'languages': geoData['languages'],
-      'asn': geoData['asn'],
-      'org': geoData['org'],
-    };
+    try {
+      final response = await http.get(Uri.parse('https://ipapi.co/json/'));
+      if (response.statusCode != 200) {
+        return {'error': 'Failed to fetch network details, Status Code: ${response.statusCode}'};
+      }
+      final Map<String, dynamic> geoData = jsonDecode(response.body);
+      return geoData;
+    } catch (e) {
+      print("Error fetching network details: $e");
+      return {'error': e.toString()};
+    }
   }
 
   Future<Map<String, dynamic>> _readNetworkInfo(NetworkInfo networkInfo) async {
@@ -238,9 +218,8 @@ DeviceInfo({
 
   Map<String, dynamic> _readWebBrowserInfo(WebBrowserInfo data) {
     devicePlatform = '${data.browserName.name} - ${data.platform}';
-    Map<String, dynamic> browserNameMap = {'name': data.browserName.name};
     return <String, dynamic>{
-      'browserName': browserNameMap,
+      'browserName': data.browserName.name,
       'appCodeName': data.appCodeName,
       'appName': data.appName,
       'appVersion': data.appVersion,

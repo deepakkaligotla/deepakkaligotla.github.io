@@ -12,7 +12,6 @@ import 'components/my_skills.dart';
 
 class DeepakDrawer extends StatefulWidget {
   final void Function(String) onDrawerItemTap;
-
   const DeepakDrawer({super.key, required this.onDrawerItemTap});
 
   @override
@@ -25,15 +24,12 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    final finalData =
-        Provider.of<LocalStorageProvider>(context, listen: true).localStorage;
+    final finalData = Provider.of<LocalStorageProvider>(context, listen: true).localStorage;
 
     List<String> pages =
         finalData.deviceInfo.isLoggedIn!
             ? [
               PrivateRouteData.privateHome.path,
-              PublicRouteData.education.path,
-              PublicRouteData.experience.path,
               PrivateRouteData.projects.path,
               PrivateRouteData.android.path,
               PrivateRouteData.ios.path,
@@ -45,7 +41,7 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               PublicRouteData.education.path,
               PublicRouteData.experience.path,
               PublicRouteData.services.path,
-              PublicRouteData.certificates.path,
+              PublicRouteData.certifications.path,
               PublicRouteData.about.path,
             ];
 
@@ -56,16 +52,6 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
                 icon: Icon(Icons.home_outlined),
                 label: Text('Home'),
                 selectedIcon: Icon(Icons.home_filled),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.cast_for_education_outlined),
-                label: Text('Education'),
-                selectedIcon: Icon(Icons.cast_for_education),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.work_history_outlined),
-                label: Text('Experience'),
-                selectedIcon: Icon(Icons.work_history),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.code_outlined),
@@ -84,7 +70,7 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.flutter_dash_outlined),
-                label: Text('Flutter'),
+                label: Text('Hybrid'),
                 selectedIcon: Icon(Icons.flutter_dash),
               ),
               NavigationRailDestination(
@@ -116,7 +102,7 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.verified_user_outlined),
-                label: Text('Experience'),
+                label: Text('Certifications'),
                 selectedIcon: Icon(Icons.verified_user),
               ),
               NavigationRailDestination(

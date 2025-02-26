@@ -7,6 +7,7 @@ class Certification {
   final Timestamp expirationDate;
   final Timestamp issueDate;
   final String issuingOrganization;
+  final String issuingOrgUrl;
   final List<String> media;
   final List<String> skills;
 
@@ -17,6 +18,7 @@ class Certification {
     required this.expirationDate,
     required this.issueDate,
     required this.issuingOrganization,
+    required this.issuingOrgUrl,
     required this.media,
     required this.skills,
   });
@@ -32,6 +34,7 @@ class Certification {
       expirationDate: data['expirationDate'] as Timestamp,
       issueDate: data['issueDate'] as Timestamp,
       issuingOrganization: data['issuingOrganization'] ?? '',
+      issuingOrgUrl: data['issuingOrgUrl'] ?? '',
       media: List<String>.from(data['media'] ?? []),
       skills: List<String>.from(data['skills'] ?? []),
     );

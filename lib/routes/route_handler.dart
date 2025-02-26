@@ -1,21 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:deepakkaligotla/views/screens/splash/splash.dart';
 import 'package:deepakkaligotla/views/screens/auth/auth_screen.dart';
-import 'package:deepakkaligotla/views/screens/private/android_content.dart';
-import 'package:deepakkaligotla/views/screens/private/backend_content.dart';
-import 'package:deepakkaligotla/views/screens/private/cloud_content.dart';
-import 'package:deepakkaligotla/views/screens/private/hybrid_content.dart';
-import 'package:deepakkaligotla/views/screens/private/ios_content.dart';
+import 'package:deepakkaligotla/views/screens/screen_not_found.dart';
+import 'package:deepakkaligotla/views/screens/restricted_screen.dart';
+import 'package:deepakkaligotla/views/screens/public/about/about.dart';
+import 'package:deepakkaligotla/views/screens/public/certifications/certifications.dart';
+import 'package:deepakkaligotla/views/screens/public/education/education.dart';
+import 'package:deepakkaligotla/views/screens/public/experience/exprience.dart';
+import 'package:deepakkaligotla/views/screens/public/services/services.dart';
+import 'package:deepakkaligotla/views/screens/public/device_info.dart';
+import 'package:deepakkaligotla/views/screens/public/public_home.dart';
+import 'package:deepakkaligotla/views/screens/private/android/android_content.dart';
+import 'package:deepakkaligotla/views/screens/private/backend/backend_content.dart';
+import 'package:deepakkaligotla/views/screens/private/cloud/cloud_content.dart';
+import 'package:deepakkaligotla/views/screens/private/hybrid/hybrid_content.dart';
+import 'package:deepakkaligotla/views/screens/private/ios/ios_content.dart';
 import 'package:deepakkaligotla/views/screens/private/private_home.dart';
 import 'package:deepakkaligotla/views/screens/private/profile_settings.dart';
-import 'package:deepakkaligotla/views/screens/private/projects.dart';
-import 'package:deepakkaligotla/views/screens/private/restricted_screen.dart';
-import 'package:deepakkaligotla/views/screens/public/about.dart';
-import 'package:deepakkaligotla/views/screens/public/device_info.dart';
-import 'package:deepakkaligotla/views/screens/public/education.dart';
-import 'package:deepakkaligotla/views/screens/public/exprience.dart';
-import 'package:deepakkaligotla/views/screens/public/public_home.dart';
-import 'package:deepakkaligotla/views/screens/screen_not_found.dart';
-import 'package:deepakkaligotla/views/screens/splash/splash.dart';
-import 'package:flutter/material.dart';
+import 'package:deepakkaligotla/views/screens/private/projects/projects.dart';
 
 class RouteInfo {
   final String path;
@@ -35,8 +37,8 @@ class PublicRouteData {
   static RouteInfo education = RouteInfo(path: 'public/education', widget: const EducationScreen(), isPrivate: false);
   static RouteInfo experience = RouteInfo(path: 'public/experience', widget: const ExperienceScreen(), isPrivate: false);
   static RouteInfo profileSettings = RouteInfo(path: 'profile/settings', widget: const ProfileSettings(), isPrivate: false);
-  static RouteInfo services = RouteInfo(path: 'public/services', widget: const PublicHome(), isPrivate: false);
-  static RouteInfo certificates = RouteInfo(path: 'public/services', widget: const PublicHome(), isPrivate: false);
+  static RouteInfo services = RouteInfo(path: 'public/services', widget: const Services(), isPrivate: false);
+  static RouteInfo certifications = RouteInfo(path: 'public/certifications', widget: Certifications(), isPrivate: false);
   static RouteInfo authLogin = RouteInfo(path: 'auth/login', widget: const AuthScreen(), isPrivate: false);
   static RouteInfo deviceInfo = RouteInfo(path: 'device/info', widget: const DeviceInfoScreen(), isPrivate: false);
   static RouteInfo notFound = RouteInfo(path: 'error', widget: const ScreenNotFound(), isPrivate: false);
@@ -73,6 +75,8 @@ class RouteHandler {
         return PublicRouteData.publicHome;
       case 'public/about':
         return PublicRouteData.about;
+      case 'public/certifications':
+        return PublicRouteData.certifications;
       case 'public/education':
         return PublicRouteData.education;
       case 'public/experience':
@@ -80,7 +84,7 @@ class RouteHandler {
       case 'profile/settings':
         return PublicRouteData.profileSettings;
       case 'public/services':
-        return PublicRouteData.publicHome;
+        return PublicRouteData.services;
       case 'device/info':
         return PublicRouteData.deviceInfo;
       case 'auth/login':

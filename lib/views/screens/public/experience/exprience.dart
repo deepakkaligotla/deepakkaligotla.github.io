@@ -14,9 +14,8 @@ class _ExperienceScreen extends State<ExperienceScreen> {
         child: SingleChildScrollView(
       child: Center(
         child: SafeArea(
-            child: Container(
-          color: Colors.black,
-        )),
+            child: Text('Experience')
+        ),
       ),
     ));
   }
