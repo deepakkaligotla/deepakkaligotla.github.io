@@ -57,16 +57,17 @@ class CertificateStack extends StatelessWidget {
                     Center(
                       child: SvgPicture.network(
                         certificate.issuingOrgUrl,
-                        height: 40,
-                        width: 40,
+                        height: 50,
+                        width: 50,
                         fit: BoxFit.contain,
+                        placeholderBuilder: (context) => const CircularProgressIndicator(),
                         errorBuilder: (context, error, stackTrace) => const Icon(
                           Icons.broken_image,
                           color: Colors.red,
-                          size: 50,
+                          size: 40,
                         ),
                       ),
-                    ),
+                    )
                 ],
               ),
               const SizedBox(height: 5 / 2),
