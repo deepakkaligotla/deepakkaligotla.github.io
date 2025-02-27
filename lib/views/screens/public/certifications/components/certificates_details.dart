@@ -1,5 +1,4 @@
 import 'package:deepakkaligotla/core/constants/constants.dart';
-import 'package:deepakkaligotla/core/utils/format_date.dart';
 import 'package:deepakkaligotla/view_models/getx_controllers/certification_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -58,8 +57,8 @@ class CertificateStack extends StatelessWidget {
                     Center(
                       child: SvgPicture.network(
                         certificate.issuingOrgUrl,
-                        height: 50,
-                        width: 50,
+                        height: 40,
+                        width: 40,
                         fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) => const Icon(
                           Icons.broken_image,
@@ -86,7 +85,6 @@ class CertificateStack extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Center(
-                // Centers the button horizontally
                 child: InkWell(
                   onTap: () {
                     if (certificate.credentialUrl.isNotEmpty) {
