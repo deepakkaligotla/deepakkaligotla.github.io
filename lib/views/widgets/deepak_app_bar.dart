@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:provider/provider.dart';
 import 'app_search.dart';
 import 'package:deepakkaligotla/models/enums.dart';
@@ -49,7 +50,7 @@ class _DeepakAppBar extends State<DeepakAppBar> {
                         ? PrivateRouteData.privateHome.path
                         : PublicRouteData.publicHome.path);
                   },
-                  icon: const Icon(Icons.home_outlined,
+                  icon: const Icon(Symbols.home_app_logo,
                       size: kToolbarHeight - 20));
         },
       ),
@@ -99,6 +100,7 @@ class _DeepakAppBar extends State<DeepakAppBar> {
           topbarButton('Education', PublicRouteData.education.path),
           topbarButton('Experience', PublicRouteData.experience.path),
           topbarButton('Services', PublicRouteData.services.path),
+          topbarButton('certifications', PublicRouteData.certifications.path),
           topbarButton('Contact Me', PublicRouteData.about.path)
         ],
       );

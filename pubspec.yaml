@@ -138,6 +138,7 @@ dependencies:
   collection: ^1.19.0  # Utility functions for collections
   url_strategy: ^0.3.0  # Handle URL strategies for routing
   mockito: ^5.4.5  # Mocking framework for tests (Testing)
+  material_symbols_icons: ^4.2805.1
 
   # -----------------------------
   # Testing Dependencies

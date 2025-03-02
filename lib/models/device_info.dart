@@ -55,19 +55,12 @@ DeviceInfo({
   }
 
   static String getDeviceCategory(double screenWidth) {
-    if (screenWidth < 576) {
-      return DeviceCategory.xsm.name;
-    } else if (screenWidth >= 576 && screenWidth < 768) {
-      return DeviceCategory.sm.name;
-    } else if (screenWidth >= 768 && screenWidth < 992) {
-      return DeviceCategory.md.name;
-    } else if (screenWidth >= 992 && screenWidth < 1200) {
-      return DeviceCategory.lg.name;
-    } else if (screenWidth >= 1200 && screenWidth < 1400) {
-      return DeviceCategory.xl.name;
-    } else {
-      return DeviceCategory.xxl.name;
-    }
+    if (screenWidth < 576) return DeviceCategory.xsm.name;
+    if (screenWidth < 768) return DeviceCategory.sm.name;
+    if (screenWidth < 992) return DeviceCategory.md.name;
+    if (screenWidth < 1200) return DeviceCategory.lg.name;
+    if (screenWidth < 1400) return DeviceCategory.xl.name;
+    return DeviceCategory.xxl.name;
   }
 
   factory DeviceInfo.fromJson(Map<String, dynamic> json) {

@@ -2,6 +2,7 @@ import 'package:deepakkaligotla/core/constants/constants.dart';
 import 'package:deepakkaligotla/providers/flutter_secure_storage.dart';
 import 'package:deepakkaligotla/routes/route_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/device_info.dart';
@@ -34,6 +35,7 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
               PrivateRouteData.android.path,
               PrivateRouteData.ios.path,
               PrivateRouteData.hybrid.path,
+              PrivateRouteData.backend.path,
               PrivateRouteData.cloud.path,
             ]
             : [
@@ -73,6 +75,11 @@ class _DeepakDrawerState extends State<DeepakDrawer> {
                 label: Text('Hybrid'),
                 selectedIcon: Icon(Icons.flutter_dash),
               ),
+          NavigationRailDestination(
+            icon: Icon(Symbols.database_rounded),
+            label: Text('Backend'),
+            selectedIcon: Icon(Symbols.database),
+          ),
               NavigationRailDestination(
                 icon: Icon(Icons.cloud_sync_outlined),
                 label: Text('Cloud'),
