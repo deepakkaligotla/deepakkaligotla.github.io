@@ -31,7 +31,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
-        run: flutter build web --release --base-href="/deepakkaligotla/web"
+        run: flutter build web --release
 
       - name: Copy _redirects file
         run: cp web/_redirects build/web/_redirects
