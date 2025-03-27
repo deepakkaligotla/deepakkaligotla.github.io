@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../providers/flutter_secure_storage.dart';
+import '../../../../routes/route_delegate.dart';
+import '../../../../routes/route_handler.dart';
 import '../../../widgets/components/glowing_container.dart';
 
 class Services extends StatefulWidget {
@@ -156,6 +158,9 @@ class _ServicesState extends State<Services> {
                                       ),
                                     );
                                   }
+                                }
+                                if (service.serviceUrl.isNotEmpty) {
+                                  AppRouterDelegate.setPathName(PrivateRouteData.android.path);
                                 }
                               },
                               child: Container(
