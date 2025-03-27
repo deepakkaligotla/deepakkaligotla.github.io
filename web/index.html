@@ -35,6 +35,11 @@
   </script>
 </head>
 <body>
+  <script>
+    if (window.location.pathname !== "/") {
+      window.history.replaceState({}, document.title, "/");
+    }
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

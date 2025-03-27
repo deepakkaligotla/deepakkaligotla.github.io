@@ -31,7 +31,10 @@ jobs:
         run: flutter pub get
 
       - name: Build Flutter Web
-        run: flutter build web --release
+        run: flutter build web --release --base-href="/deepakkaligotla.github.io/"
+
+      - name: Copy _redirects file
+        run: cp web/_redirects build/web/_redirects
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
