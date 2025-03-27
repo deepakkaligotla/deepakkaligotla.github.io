@@ -6,6 +6,7 @@ import 'package:deepakkaligotla/view_models/servicesViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:deepakkaligotla/app.dart';
 import 'package:deepakkaligotla/providers/model_provider.dart';
@@ -23,6 +24,7 @@ void main() async {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     setPathUrlStrategy();
+    setUrlStrategy(HashUrlStrategy());
 
     await initializeFirebase();
 
