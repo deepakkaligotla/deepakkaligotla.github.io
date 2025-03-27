@@ -148,18 +148,6 @@ class _ServicesState extends State<Services> {
                             child: InkWell(
                               onTap: () async {
                                 if (service.serviceUrl.isNotEmpty) {
-                                  final url = Uri.parse(service.serviceUrl);
-                                  if (await canLaunchUrl(url)) {
-                                    launchUrl(url);
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Could not open URL'),
-                                      ),
-                                    );
-                                  }
-                                }
-                                if (service.serviceUrl.isNotEmpty) {
                                   AppRouterDelegate.setPathName(PrivateRouteData.android.path);
                                 }
                               },
