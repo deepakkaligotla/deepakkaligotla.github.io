@@ -1,6 +1,8 @@
 library;
 import 'dart:async';
 import 'dart:developer' as developer;
+import 'package:deepakkaligotla/view_models/certificationViewModel.dart';
+import 'package:deepakkaligotla/view_models/servicesViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -31,6 +33,8 @@ void main() async {
     runApp(
       MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (context) => ServicesViewModel()),
+          ChangeNotifierProvider(create: (context) => CertificationViewModel()),
           ChangeNotifierProvider(create: (context) => ExperienceViewModel()),
           ChangeNotifierProvider(create: (context) => EducationViewModel()),
           ChangeNotifierProvider<ModelProvider>(create: (context) => modelProvider),

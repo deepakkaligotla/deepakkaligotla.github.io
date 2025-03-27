@@ -1,18 +1,32 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/certification.dart';
+import 'package:flutter/cupertino.dart';
 
-class CertificationViewModel {
+class CertificationViewModel extends ChangeNotifier {
+  List<Certification> _certifications = [];
+  bool _isLoading = true;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  List<Certification> get certifications => _certifications;
+  bool get isLoading => _isLoading;
 
-  // Method to fetch all certifications
-  Future<List<Certification>> fetchCertifications() async {
-    QuerySnapshot snapshot = await _firestore.collection('certificates').get();
-    return snapshot.docs
-        .map((doc) => Certification.fromFirestore(doc))
-        .toList();
+  Future<void> fetchCertifications() async {
+    try {
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('certificates')
+          .get();
+      _certifications = await Future.wait(querySnapshot.docs.map((doc) async {
+        var certificate = Certification.fromFirestore(doc);
+        return certificate;
+      }).toList());
+      _isLoading = false;
+      notifyListeners();
+    } catch (e) {
+      _isLoading = false;
+      notifyListeners();
+      print('Error fetching certifications: $e');
+    }
   }
 
-  // Method to add a new certification
   Future<void> addCertification(Certification certification) async {
     await _firestore.collection('certificates').add({
       'certificateName': certification.certificateName,

@@ -21,6 +21,9 @@ class ModelProvider with ChangeNotifier {
   }
 
   Future<void> setConstraints(double maxHeight, double maxWidth) async {
+    if (finalModel.deviceInfo.deviceHeight == maxHeight && finalModel.deviceInfo.deviceWidth == maxWidth) {
+      return;
+    }
     finalModel.deviceInfo.deviceHeight = maxHeight;
     finalModel.deviceInfo.deviceWidth = maxWidth;
     finalModel.deviceInfo.deviceCategory = DeviceInfo.getDeviceCategory(maxWidth);

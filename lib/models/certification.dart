@@ -23,7 +23,6 @@ class Certification {
     required this.skills,
   });
 
-  // Factory constructor to convert Firestore DocumentSnapshot into a Certification object
   factory Certification.fromFirestore(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 

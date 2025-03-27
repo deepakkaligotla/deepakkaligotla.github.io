@@ -49,8 +49,8 @@ class _GlowingContainerState extends State<GlowingContainer>  with TickerProvide
                   ? [
                 BoxShadow(
                   color: Colors.purpleAccent,
-                  blurRadius: 20,
-                  spreadRadius: 5,
+                  blurRadius: 10,
+                  spreadRadius: 2,
                 ),
               ]
                   : [],
