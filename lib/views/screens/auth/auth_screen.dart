@@ -65,7 +65,7 @@ class AuthScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Image.asset('assets/images/flutterfire_300x.png',
+                  child: Image.network('https://raw.githubusercontent.com/deepakkaligotla/deepakkaligotla.github.io/refs/heads/main/assets/images/logo.png',
                       width: 200, height: 200),
                 ),
               );

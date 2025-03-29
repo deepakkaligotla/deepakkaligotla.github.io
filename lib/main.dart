@@ -23,7 +23,7 @@ const clientId = '364889823069-hj3143d5lfne6qkcroi69gpvlevmu726.apps.googleuserc
 void main() async {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    setPathUrlStrategy();
+    // setPathUrlStrategy();
     setUrlStrategy(HashUrlStrategy());
 
     await initializeFirebase();

@@ -1,9 +1,9 @@
+import 'package:deepakkaligotla/views/screens/public/github/home_page_content.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:deepakkaligotla/routes/route_delegate.dart';
 import 'package:deepakkaligotla/routes/route_handler.dart';
 import 'package:deepakkaligotla/providers/flutter_secure_storage.dart';
-import 'package:deepakkaligotla/views/screens/public/certifications/certifications.dart';
 
 class PublicHome extends StatefulWidget {
   const PublicHome({super.key});
@@ -13,16 +13,19 @@ class PublicHome extends StatefulWidget {
 }
 
 class _PublicHomeState extends State<PublicHome> {
+
   @override
   Widget build(BuildContext context) {
     final finalData = Provider.of<LocalStorageProvider>(context, listen: true).localStorage;
 
-    return SizedBox.expand(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
+    return Scaffold(
+      body: Stack(
+        children: [
+          HomePageContent(),
+          Positioned(
+            top: 20,
+            right: 20,
+            child: ElevatedButton(
               onPressed: () {
                 finalData.deviceInfo.isLoggedIn!
                     ? AppRouterDelegate.setPathName(PrivateRouteData.privateHome.path)
@@ -30,8 +33,8 @@ class _PublicHomeState extends State<PublicHome> {
               },
               child: Text(finalData.deviceInfo.isLoggedIn! ? "Show Content" : "Login/Signup"),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -33,7 +33,7 @@ class _ProfileSettings extends State<ProfileSettings> {
               ],
               children: [
                 const Divider(),
-                Image.asset('assets/images/flutterfire_300x.png', width: 100, height: 100),
+                Image.network('https://raw.githubusercontent.com/deepakkaligotla/deepakkaligotla.github.io/refs/heads/main/assets/images/logo.png', width: 100, height: 100),
               ],
             )
           : const SizedBox.expand(

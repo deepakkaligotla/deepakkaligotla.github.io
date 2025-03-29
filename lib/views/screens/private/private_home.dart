@@ -23,7 +23,7 @@ class _PrivateHome extends State<PrivateHome> {
         child: SingleChildScrollView(
       child: Center(
           child: Column(children: [
-        Image.asset('assets/images/dash.png', width: 200, height: 200),
+        Image.network("https://raw.githubusercontent.com/deepakkaligotla/deepakkaligotla.github.io/refs/heads/main/assets/images/logo.png", width: 200, height: 200),
         Text(
           'Welcome, ${finalData.userDetails.displayName}',
           style: Theme.of(context).textTheme.displaySmall,
