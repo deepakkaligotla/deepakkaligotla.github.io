@@ -23,7 +23,6 @@ class _HomePageContentState extends State<HomePageContent> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFF0D1117),
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Row(

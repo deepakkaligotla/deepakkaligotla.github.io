@@ -221,8 +221,8 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         _buildInfoRow(Icons.access_time, "23:01 - same time"),
         const SizedBox(height: 10),
         _buildLink("Linkedin", "https://linkedin.com/in/deepakkaligotla", FontAwesomeIcons.linkedin),
-        _buildLink("GitHub", "https://github.com/deepakkaligotla?tab=repositories", FontAwesomeIcons.githubAlt),
-        _buildLink("Google Play", "https://play.google.com/store/apps/dev?id=808984217839316324", FontAwesomeIcons.googlePlay),
+        _buildLink("Google Play", "https://play.google.com/store/apps/dev?id=8089842178393161324", FontAwesomeIcons.googlePlay),
+        _buildLink("Apple AppStore", "https://apps.apple.com/in/app/", FontAwesomeIcons.appStore),
         _buildLink("Medium", "https://deepakkaligotla.medium.com/", FontAwesomeIcons.medium),
         const SizedBox(height: 20),
         const Text(
