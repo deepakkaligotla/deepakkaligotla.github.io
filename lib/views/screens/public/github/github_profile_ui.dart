@@ -50,7 +50,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
           "Deepak Kaligotla",
           textAlign: TextAlign.left,
           style: TextStyle(
-            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
@@ -88,7 +87,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
                 children: [
                   FaIcon(
                     FontAwesomeIcons.github,
-                    color: Colors.white,
                     size: 16,
                   ),
                   SizedBox(width: 8),
@@ -96,7 +94,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
                     "Follow",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -112,7 +109,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
           textAlign: TextAlign.center,
           "Mobile App Dev - Android & iOS\nTotal Experience: 6.3yr\nKotlin, Java, Swift, Node, GCP, Azure.",
           style: TextStyle(
-            color: Colors.white,
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),
@@ -168,7 +164,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
             const Text(
               " · ",
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 14,
               ),
             ),
@@ -228,7 +223,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         const Text(
           "Achievements",
           style: TextStyle(
-            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),

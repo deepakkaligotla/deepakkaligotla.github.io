@@ -30,7 +30,6 @@ class _GitTabBarState extends State<GitTabBar>
       children: [
         TabBar(
           controller: _tabController,
-          labelColor: Colors.white,
           unselectedLabelColor: Colors.grey,
           tabs: const [
             Tab(icon: Icon(Icons.menu_book_sharp), text: "Overview"),

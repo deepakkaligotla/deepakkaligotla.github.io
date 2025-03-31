@@ -2,6 +2,7 @@ library;
 import 'dart:async';
 import 'dart:developer' as developer;
 import 'package:deepakkaligotla/view_models/certificationViewModel.dart';
+import 'package:deepakkaligotla/view_models/popularRepoViewModel.dart';
 import 'package:deepakkaligotla/view_models/servicesViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +40,7 @@ void main() async {
           ChangeNotifierProvider(create: (context) => CertificationViewModel()),
           ChangeNotifierProvider(create: (context) => ExperienceViewModel()),
           ChangeNotifierProvider(create: (context) => EducationViewModel()),
+          ChangeNotifierProvider(create: (context) => PopularRepositoriesViewModel()),
           ChangeNotifierProvider<ModelProvider>(create: (context) => modelProvider),
           ChangeNotifierProvider<LocalStorageProvider>(create: (context) => localStorageProvider),
           ChangeNotifierProvider<RemoteStorageProvider>(create: (context) => remoteStorageProvider),
