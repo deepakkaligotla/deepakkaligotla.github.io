@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:deepakkaligotla/providers/flutter_secure_storage.dart';
 import 'github_profile_ui.dart';
 import 'tab_bar_screen.dart';
 
@@ -11,16 +13,10 @@ class HomePageContent extends StatefulWidget {
 }
 
 class _HomePageContentState extends State<HomePageContent> {
-
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $url';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final localStorageProvider = Provider.of<LocalStorageProvider>(context, listen: true);
+
     return SafeArea(
       child: Scaffold(
         body: SizedBox(
@@ -30,7 +26,7 @@ class _HomePageContentState extends State<HomePageContent> {
               Expanded(
                 flex: 1,
                 child: Container(
-                  margin: const EdgeInsets.fromLTRB(20, 50, 10, 20),
+                  margin: const EdgeInsets.fromLTRB(20, 40, 10, 20),
                   alignment: Alignment.topRight,
                   padding: const EdgeInsets.all(16),
                   child: SingleChildScrollView(
@@ -50,7 +46,7 @@ class _HomePageContentState extends State<HomePageContent> {
                 child: Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.all(20),
-                  margin: const EdgeInsets.fromLTRB(10, 40, 80, 20),
+                  margin: const EdgeInsets.fromLTRB(10, 0, 80, 20),
                   child: const GitTabBar(),
                 ),
               ),

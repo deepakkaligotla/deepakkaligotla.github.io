@@ -28,7 +28,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        /// Profile Image
         Container(
           width: 120,
           height: 120,
@@ -45,7 +44,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         ),
         const SizedBox(height: 10),
 
-        /// Name
         const Text(
           "Deepak Kaligotla",
           textAlign: TextAlign.left,
@@ -56,7 +54,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         ),
         const SizedBox(height: 5),
 
-        /// Email
         const Text(
           "deepak.kaligotla@gmail.com",
           textAlign: TextAlign.left,
@@ -64,7 +61,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         ),
         const SizedBox(height: 15),
 
-        /// Follow Button
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
@@ -104,7 +100,6 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         ),
         const SizedBox(height: 15),
 
-        /// Bio
         const Text(
           textAlign: TextAlign.center,
           "Mobile App Dev - Android & iOS\nTotal Experience: 6.3yr\nKotlin, Java, Swift, Node, GCP, Azure.",
@@ -116,11 +111,9 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         ),
         const SizedBox(height: 10),
 
-        /// Followers & Following Links
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            /// Followers
             MouseRegion(
               cursor: SystemMouseCursors.click,
               onEnter:
@@ -217,7 +210,7 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
         const SizedBox(height: 10),
         _buildLink("Linkedin", "https://linkedin.com/in/deepakkaligotla", FontAwesomeIcons.linkedin),
         _buildLink("Google Play", "https://play.google.com/store/apps/dev?id=8089842178393161324", FontAwesomeIcons.googlePlay),
-        _buildLink("Apple AppStore", "https://apps.apple.com/in/app/", FontAwesomeIcons.appStore),
+        _buildLink("Apple AppStore", "https://apps.apple.com/us/app/apple-developer/id640199958", FontAwesomeIcons.appStore),
         _buildLink("Medium", "https://deepakkaligotla.medium.com/", FontAwesomeIcons.medium),
         const SizedBox(height: 20),
         const Text(
@@ -245,28 +238,31 @@ class _GitHubProfileUIState extends State<GitHubProfileUI> {
   }
 
   Widget _buildLink(String linkName, String url, [IconData? icon]) {
-    return GestureDetector(
-      onTap: () => _launchUrl(url),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (icon != null)
-            FaIcon(icon, color: Colors.grey, size: 16)
-          else
-            Icon(Icons.link, color: Colors.grey, size: 16),
-          const SizedBox(width: 8),
-          Text(
-            linkName,
-            textAlign: TextAlign.left,
-            style: const TextStyle(
-              color: Colors.blue,
-              fontSize: 14,
-              decoration: TextDecoration.underline,
-            ),
-            overflow: TextOverflow.ellipsis,
+    return MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () => _launchUrl(url),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (icon != null)
+                FaIcon(icon, color: Colors.grey, size: 16)
+              else
+                Icon(Icons.link, color: Colors.grey, size: 16),
+              const SizedBox(width: 8),
+              Text(
+                linkName,
+                textAlign: TextAlign.left,
+                style: const TextStyle(
+                  color: Colors.blue,
+                  fontSize: 14,
+                  decoration: TextDecoration.underline,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           ),
-        ],
-      ),
+        )
     );
   }
 
