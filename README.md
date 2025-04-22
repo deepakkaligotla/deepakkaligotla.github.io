@@ -30,22 +30,46 @@ This repository is a collection of my **mobile app development projects**. It hi
 
 Here are some of the projects I’ve worked on:
 
-### 1. **Weather App (Android - Kotlin)**
+# 📱 Mobile Permissions App
 
-- **Description**: A weather application that pulls real-time weather data from an API.
-- **Technologies Used**: Kotlin, Retrofit, JSON parsing, Material Design
-- **Features**:
-    - Displays current weather conditions.
-    - Shows a 5-day weather forecast.
-    - Integration with OpenWeatherMap API.
+A comprehensive native application built for both **Android** and **iOS** to demonstrate **real-time runtime permissions handling** and live data access.
 
-### 2. **Task Manager (iOS - SwiftUI)**
+## 🔹 Android (Kotlin + Jetpack + MVVM)
+- Implemented all major runtime permissions including:
+  - 📷 Camera, 🎙️ Microphone, 📍 Location, 👥 Contacts, 📞 Phone, 📩 SMS, 📑 Call Logs, 🔐 Biometrics, 🧭 Sensors, 🔔 Notifications, 🏃‍♂️ Physical Activity, and more.
+- Features:
+  - Granular permission request flows
+  - Current permission status checks
+  - Custom handling for denied and permanently denied permissions
+  - Live data access demos (e.g., fetching contacts, capturing photos)
 
-- **Description**: A task management app to create and track tasks.
-- **Technologies Used**: SwiftUI, Core Data, CloudKit
-- **Features**:
-    - Add, edit, and delete tasks.
-    - Sync tasks across devices using iCloud.
+🔗 [GitHub Repository - Android](https://github.com/deepakkaligotla/Android/tree/main/AllPermissions)
+
+---
+
+## 🔹 iOS (Swift + SwiftUI + MVVM)
+- Integrated system-level permissions including:
+  - 👁️ Face ID, 🗣️ Siri, 🎵 Apple Music, 📶 Bluetooth, ❤️ HealthKit, 📱 NFC, 🎤 Microphone, 🖼️ Photos, ⏰ Reminders, 🌐 Network Access, 📂 File Manager, and more.
+- Features:
+  - Elegant SwiftUI interface for requesting and managing permissions
+  - Real-time permission status handling
+  - Sample implementations using native frameworks
+
+🔗 [GitHub Repository - iOS](https://github.com/deepakkaligotla/iOS/tree/main/AllPermissionsImpl)
+
+---
+
+## 💼 Developer Portfolio (Flutter Web + Firebase)
+
+A **cross-platform responsive portfolio app** built with **Flutter** and deployed on **GitHub Pages**.
+
+- 🌐 Features:
+  - Dynamic **GitHub API** integration to fetch and display pinned repositories
+  - Interactive **certificate section** with animations and hover effects
+  - **Firebase Authentication**, **Firestore**, and **reCAPTCHA** verification
+  - **Material 3** theming and custom UI animations
+
+📎 [Live Demo - Portfolio](https://deepakkaligotla.github.io/)
 
 ## Key Skills
 
